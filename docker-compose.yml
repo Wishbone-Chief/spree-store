@@ -1,0 +1,22 @@
+spree-store:
+  build: .
+  ports:
+    - "80:80"
+  links:
+      - db
+  environment:
+    - PASSENGER_APP_ENV=development
+    - SECRET_KEY_BASE=G308PEWKhmIQs4KRgS7tCVN1Q9zrdtdx
+    - DATABASE_URL=postgres://spree-store:spree-store@db:5432/spree-store?encoding=utf8&pool=5&timeout=5000
+  volumes:
+    - .:/home/app/spree-store
+
+db:
+  image: sameersbn/postgresql:9.4-21
+  ports:
+    - "5432:5432"
+  environment:
+    - PG_PASSWORD=postgres
+    - DB_USER=spree-store
+    - DB_PASS=spree-store
+    - DB_NAME=spree-store_development,spree-store_test,spree-store_production,spree-store_staging
