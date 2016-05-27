@@ -6,7 +6,7 @@ spree-store:
       - db
   environment:
     - PASSENGER_APP_ENV=development
-    - SECRET_KEY_BASE=G308PEWKhmIQs4KRgS7tCVN1Q9zrdtdx
+    - SECRET_KEY_BASE=bf20561a0ecb84fbd08ca236fb9036a53d8351477b9e83c591d0e9fd2f02bfd018f667ad1cf8ba2f9bbf502932312cba5574
     - DATABASE_URL=postgres://spree-store:spree-store@db:5432/spree-store?encoding=utf8&pool=5&timeout=5000
   volumes:
     - .:/home/app/spree-store
