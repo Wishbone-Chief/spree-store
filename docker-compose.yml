@@ -1,5 +1,5 @@
 spree-store:
-  build: .
+  image: spree-store:dev
   ports:
     - "80:80"
   links:

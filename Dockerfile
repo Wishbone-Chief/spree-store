@@ -1,6 +1,6 @@
 # Dockerfile
 
-FROM phusion/passenger-ruby21:0.9.15
+FROM phusion/passenger-full:0.9.18
 MAINTAINER Aditya Raghuwanshi "adi.version1@gmail.com"
 
 # Set correct environment variables.
