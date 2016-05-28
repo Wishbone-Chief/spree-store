@@ -32,5 +32,12 @@ RUN bundle install
 ADD . /home/app/spree-store
 RUN chown -R app:app /home/app/spree-store
 
+# Precompile assets
+WORKDIR /home/app/spree-store
+ENV DATABASE_URL postgres://dummy:dummy@postgresql.ea807d0e.svc.dockerapp.io:5432/dummy
+ENV SECRET_KEY_BASE dummy
+RUN bundle exec rake assets:precompile
+RUN bundle exec rake assets:clean
+
 # Clean up APT and bundler when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
