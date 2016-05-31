@@ -41,3 +41,9 @@ RUN bundle exec rake assets:clean
 
 # Clean up APT and bundler when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Give permissions to tmp/log folder
+RUN mkdir -p /home/app/spree-store/tmp
+RUN mkdir -p /home/app/spree-store/log
+RUN chown -R app:app /home/app/spree-store/tmp
+RUN chown -R app:app /home/app/spree-store/log
